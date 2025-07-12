@@ -1,0 +1,149 @@
+:root {
+    --color-1: #215064;
+    --color-2: #C0D6DF;
+    --color-3: #f1f1f1;
+}
+
+
+body{
+    font-family: "Roboto", sans-serif;
+}
+
+header{
+    /* border: 2px solid red ; */
+    display: flex;
+    max-width: 1400px;
+    margin: 20px auto 0 auto;
+}
+
+.navbar{
+    /* border: 2px solid blue; */
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    h3{
+        font-size: 50px;
+        margin: 0;
+        color: var(--color-1);
+    }
+}
+
+.create-container{
+    display: flex;
+    button{
+        border-color: var(--color-1);;
+        color: var(--color-1);
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        font-size: 20px;
+        padding: 15px 25px;
+    }
+    span{
+        font-size: 24px;
+    }
+}
+
+main{
+    /* border: 2px solid red; */
+    max-width: 1400px;
+    margin: 20px auto 0 auto;
+}
+
+.category-section{
+    border: 2px solid var(--color-1);
+    background-color: var(--color-3);
+    border-radius: 8px;
+}
+
+.categories{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin: 3px;
+
+    h4{
+        font-weight: normal;
+        color: var(--color-1);
+        border: 2px solid var(--color-1);
+        background-color: var(--color-2);
+        padding: 10px;
+        margin: 5px;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+}
+
+.cards-container {
+    overflow: auto;
+    /* border: 2px solid var(--color-1);
+    background-color: var(--color-3); */
+    border-radius: 8px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+    justify-content: center;
+    padding: 0;
+    gap: 15px;
+}
+
+.card {
+    margin: 0;
+    border: 2px solid var(--color-1);
+    background-color: var(--color-3);
+    border-radius: 8px;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    .title{
+        background-color: var(--color-2);
+        margin: 0;
+        padding: 5px 10px;
+        h4,h5{
+            margin: 0px;
+        }
+        h4{
+            font-size: 22px;
+        }
+        h5{
+            font-size: 17px;
+            margin-top: 8px;
+            font-weight: normal;
+            color: rgb(68, 68, 68);
+        }
+    }
+
+    .description{
+        /* border: 2px solid orange; */
+        flex: 1;
+        margin: 10px;
+        overflow: auto;
+    }
+
+    .bottom{
+        /* border: 2px solid orange; */
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        button{
+            border-radius: 8px;
+            padding: 10px 20px;
+            margin: 0;
+            font-size: 15px;
+            background-color: var(--color-2);
+            color: var(--color-1);
+            border-color: var(--color-1);;
+        }
+        h6{
+            font-size: 15px;
+            margin: 0;
+            font-weight: normal;
+            color: rgb(68, 68, 68);
+        }
+    }
+}
