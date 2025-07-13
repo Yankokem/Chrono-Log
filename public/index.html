@@ -12,7 +12,7 @@
     <header>
         <div class="navbar">
             <h3>Chrono()Log</h3>
-            <div class="create-container">
+            <div class="create-container" id="create-btn">
                 <button>
                     <span class="material-icons-outlined">add</span>
                     Create New
@@ -20,6 +20,34 @@
             </div>
         </div>
     </header>
+
+    <div class="modal-parent" id="modal-parent">
+        <div class="modal-container">
+            <div class="modal">
+                <div class="close-btn">
+                    <button id="close-btn"><span class="material-icons-outlined">close</span></button>
+                </div>
+                <h2>New Note</h2>
+                <form>
+                    <fieldset>
+                        <legend>Title</legend>
+                        <input id="title" placeholder="Title">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Category</legend>
+                        <input id="category" placeholder="DAPAT SELECT NI SIYA!">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Note</legend>
+                        <textarea id="note" placeholder="What's on your mind?"></textarea>
+                    </fieldset>
+                </form>
+                <div class="confirm-btn">
+                    <button id="confirm-btn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main>
         <div class="category-section">
@@ -50,62 +78,6 @@
                         <button>Delete</button>
                     </div>
                     
-                </div>
-            </div>
-            <div class="card">
-                <div class="title">
-                    <h4>I love her</h4>
-                    <h5>Relationship</h5>
-                </div>
-                <div class="description">
-                    <p>I really love her ever since, even though- godamnit what i am doing this is so wrong.</p>
-                </div>
-                <div class="bottom">
-                    <div class="date">
-                        <h6>9 - 1 - 2025</h6>
-                    </div>
-                    <div class="button-group">
-                        <button>Delete</button>
-                    <button>Edit</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="title">
-                    <h4>I love her</h4>
-                    <h5>Relationship</h5>
-                </div>
-                <div class="description">
-                    <p>I really love her ever since, even though- godamnit what i am doing this is so wrong.</p>
-                </div>
-                <div class="bottom">
-                    <div class="date">
-                        <h6>9 - 1 - 2025</h6>
-                    </div>
-                    <div class="button-group">
-                        <button>Delete</button>
-                    <button>Edit</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="title">
-                    <h4>I love her</h4>
-                    <h5>Relationship</h5>
-                </div>
-                <div class="description">
-                    <p>I really love her ever since, even though- godamnit what i am doing this is so wrong.</p>
-                </div>
-                <div class="bottom">
-                    <div class="date">
-                        <h6>9 - 1 - 2025</h6>
-                    </div>
-                    <div class="button-group">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                    </div>
                 </div>
             </div>
         </div>

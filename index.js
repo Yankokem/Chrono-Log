@@ -1,4 +1,14 @@
-var mysql      = require('mysql');
+const express = require('express');
+const path = require('path');
+const mysql = require('mysql');
+const { error } = require('console');
+
+const app = express();
+const PORT = 3000;
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, 'public')));
+
 var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
@@ -6,11 +16,15 @@ var connection = mysql.createConnection({
     database : 'flashcard_game'
 });
 
-connection.connect();
-
-connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-if (error) throw error;
-    console.log('The solution is: ', results[0].solution);
+connection.connect(error =>{
+    if(error) throw err;
+    console.log('Connected to MySQL');
 });
 
-connection.end();
+app.listen(PORT, ()=> {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
+
+
+
+
