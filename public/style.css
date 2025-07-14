@@ -30,17 +30,25 @@ header{
 .create-container{
     display: flex;
     button{
-        border-color: var(--color-1);;
+        border-color: var(--color-2);
         color: var(--color-1);
         display: flex;
         align-items: center;
         border-radius: 8px;
         font-size: 20px;
         padding: 15px 25px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
     }
     span{
         font-size: 24px;
     }
+}
+
+.create-container button:hover{
+    border-color: var(--color-1);
+    background-color: var(--color-1);
+    color: var(--color-2);
+    transform: scale(1.02);
 }
 
 .modal-parent {
@@ -85,7 +93,6 @@ header{
         /* color: var(--color-1); */
         text-align: center;
     }
-    
 }
 
 .close-btn{
@@ -94,20 +101,34 @@ header{
     justify-content: flex-end;
     margin-bottom: -20px;
     button{
+        transition: background-color 0.3s ease, transform 0.2s ease;
         border-radius: 8px;
     }
 }
 
+.close-btn button:hover{
+    background-color: var(--color-1);
+    color: var(--color-3);
+    transform: scale(1.02);
+}
+
 .confirm-btn{
     display: flex;
-    /* border: 2px solid violet; */
+
     justify-content: flex-end;
     align-self: flex-end;
     button{
+        transition: background-color 0.3s ease, transform 0.2s ease;
         border-radius: 8px;
         padding: 8px 20px;
         font-size: 16px;
     }
+}
+
+.confirm-btn button:hover{
+    background-color: var(--color-1);
+    color: var(--color-3);
+    transform: scale(1.02);
 }
 
 form{
@@ -149,7 +170,7 @@ form{
     flex: 1;
     display: flex;
     }
-    
+
     #note {
     flex: 1;
     width: 100%;
@@ -164,8 +185,8 @@ main{
 }
 
 .category-section{
-    border: 2px solid var(--color-1);
-    background-color: var(--color-3);
+    border: 1px solid var(--color-1);
+    background-color: var(--color-2);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -179,12 +200,20 @@ main{
     h4{
         font-weight: normal;
         color: var(--color-1);
-        border: 2px solid var(--color-1);
-        background-color: var(--color-2);
+        border: 1px solid var(--color-1);
+        background-color: var(--color-3);
         padding: 10px;
         margin: 5px;
         font-size: 18px;
         border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    h4:hover{
+        border: 2px solid var(--color-1);
+        background-color: var(--color-1);
+        color: var(--color-3);
+        transform: scale(1.02);
     }
 }
 
@@ -255,8 +284,9 @@ main{
             margin: 0;
             font-size: 15px;
             background-color: var(--color-2);
-            color: var(--color-1);
-            border-color: var(--color-1);;
+             border-color:var(--color-2);
+            color: var(--color-1);;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         h6{
             font-size: 14px;
@@ -264,5 +294,13 @@ main{
             font-weight: normal;
             color: rgb(68, 68, 68);
         }
+    }
+
+    .bottom button:hover{
+    border-color: var(--color-1);
+    background-color: var(--color-1);
+    color: var(--color-2);
+    transform: scale(1.02);
+
     }
 }
