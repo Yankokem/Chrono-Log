@@ -131,6 +131,100 @@ header{
     transform: scale(1.02);
 }
 
+/* EDIT MODAL */
+.edit-modal-parent {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.edit-modal-parent.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.edit-modal-container {
+    border: 3px solid var(--color-1);
+    background-color: var(--color-2);
+    border-radius: 8px;
+    width: 500px;
+    height: 600px;
+    display: flex;
+    padding: 10px;
+}
+
+.edit-modal {
+    background-color: var(--color-2);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-modal h2 {
+    text-align: center;
+}
+
+.edit-close-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -20px;
+}
+
+.edit-close-btn button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+}
+
+.edit-close-btn button:hover {
+    background-color: var(--color-1);
+    color: var(--color-3);
+    transform: scale(1.02);
+}
+
+.edit-confirm-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+.edit-confirm-btn button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 16px;
+}
+
+.edit-confirm-btn button:hover {
+    background-color: var(--color-1);
+    color: var(--color-3);
+    transform: scale(1.02);
+}
+
+#edit-note {
+    width: 100%; /* Full width of parent fieldset */
+    height: 280px;
+    resize: vertical;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-1);
+    border-radius: 4px;
+}
+
 form{
     /* border: 2px solid green; */
     display: flex;
@@ -187,6 +281,7 @@ main{
 .category-section{
     border: 1px solid var(--color-1);
     background-color: var(--color-2);
+    
     border-radius: 8px;
     overflow: hidden;
 }
@@ -196,8 +291,8 @@ main{
     flex-direction: row;
     gap: 5px;
     margin: 3px;
-
     h4{
+        
         font-weight: normal;
         color: var(--color-1);
         border: 1px solid var(--color-1);
@@ -206,14 +301,13 @@ main{
         margin: 5px;
         font-size: 18px;
         border-radius: 8px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
 
     h4:hover{
-        border: 2px solid var(--color-1);
+        border: 1px solid var(--color-1);
         background-color: var(--color-1);
         color: var(--color-3);
-        transform: scale(1.02);
     }
 }
 
@@ -284,7 +378,7 @@ main{
             margin: 0;
             font-size: 15px;
             background-color: var(--color-2);
-             border-color:var(--color-2);
+        border-color:var(--color-2);
             color: var(--color-1);;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }

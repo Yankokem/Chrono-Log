@@ -8,6 +8,7 @@ const app = express();
 
 const PORT = 8000;
 
+app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -23,10 +24,16 @@ connection.connect(error =>{
     console.log('Connected to MySQL');
 });
 
-// Simple endpoint to get all flashcards
 app.get('/flashcards', (req, res) => {
-    const query = 'SELECT * FROM flashcards';
-    connection.query(query, (error, results) => {
+    let query = 'SELECT * FROM flashcards';
+    const params = [];
+    
+    if (req.query.category) {
+        query += ' WHERE category = ?';
+        params.push(req.query.category);
+    }
+    
+    connection.query(query, params, (error, results) => {
         if (error) {
             console.error('Error fetching flashcards:', error);
             return res.status(500).json({ error: 'Database error' });
@@ -45,6 +52,60 @@ app.get('/categories', (req, res) => {
         }
         const categories = results.map(row => row.category);
         res.json(categories);
+    });
+});
+
+app.post('/flashcards', (req, res) => {
+    const { question, answer, category } = req.body;
+    const query = 'INSERT INTO flashcards (question, answer, category) VALUES (?, ?, ?)';
+    
+    connection.query(query, [question, answer, category], (error, results) => {
+        if (error) {
+            console.error('Error creating flashcard:', error);
+            return res.status(500).json({ error: 'Database error' });
+        }
+        
+        res.json({ 
+            message: 'Flashcard created successfully',
+            id: results.insertId 
+        });
+    });
+});
+
+app.put('/flashcards/:id', (req, res) => {
+    const cardId = req.params.id;
+    const { question, answer, category } = req.body;
+    const query = 'UPDATE flashcards SET question = ?, answer = ?, category = ? WHERE id = ?';
+    
+    connection.query(query, [question, answer, category, cardId], (error, results) => {
+        if (error) {
+            console.error('Error updating flashcard:', error);
+            return res.status(500).json({ error: 'Database error' });
+        }
+        
+        if (results.affectedRows === 0) {
+            return res.status(404).json({ error: 'Flashcard not found' });
+        }
+        
+        res.json({ message: 'Flashcard updated successfully' });
+    });
+});
+
+app.delete('/flashcards/:id', (req, res) => {
+    const cardId = req.params.id;
+    const query = 'DELETE FROM flashcards WHERE id = ?';
+    
+    connection.query(query, [cardId], (error, results) => {
+        if (error) {
+            console.error('Error deleting flashcard:', error);
+            return res.status(500).json({ error: 'Database error' });
+        }
+        
+        if (results.affectedRows === 0) {
+            return res.status(404).json({ error: 'Flashcard not found' });
+        }
+        
+        res.json({ message: 'Flashcard deleted successfully' });
     });
 });
 

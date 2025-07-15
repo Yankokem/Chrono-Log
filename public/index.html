@@ -20,7 +20,7 @@
             </div>
         </div>
     </header>
-
+    
     <div class="modal-parent" id="modal-parent">
         <div class="modal-container">
             <div class="modal">
@@ -44,6 +44,34 @@
                 </form>
                 <div class="confirm-btn">
                     <button id="confirm-btn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-modal-parent" id="edit-modal-parent">
+        <div class="edit-modal-container">
+            <div class="edit-modal">
+                <div class="edit-close-btn">
+                    <button id="edit-close-btn"><span class="material-icons-outlined">close</span></button>
+                </div>
+                <h2>Edit Note</h2>
+                <form>
+                    <fieldset>
+                        <legend>Title</legend>
+                        <input id="edit-title" placeholder="Title">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Category</legend>
+                        <select id="edit-category"></select>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Note</legend>
+                        <textarea id="edit-note" placeholder="What's on your mind?"></textarea>
+                    </fieldset>
+                </form>
+                <div class="edit-confirm-btn">
+                    <button id="edit-confirm-btn">Edit</button>
                 </div>
             </div>
         </div>
